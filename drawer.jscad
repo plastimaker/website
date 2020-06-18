@@ -1,7 +1,7 @@
 // title      : PlastiMaker Customizable Mini Drawers
 // author     : PlastiMaker
 // license    : MIT License
-// revision   : 0.001
+// revision   : A1
 // file       : drawer.jscad
 
 var g_prm_drawer_width = 70;
@@ -23,7 +23,7 @@ function main () {
     body = addLabelHolder(body);
     body = addHandle(body);
 
-    return body.translate([0,0,g_prm_drawer_height/2]);
+    return [body.translate([0,0,g_prm_drawer_height/2])];
 
     function addHandle(body) {
         var size = 8;
