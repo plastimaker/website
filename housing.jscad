@@ -15,11 +15,14 @@ var g_prm_house_tolerance = 0.5;
 var g_prm_house_window_w_prcnt = 0.80;//0 to 0.85
 var g_prm_house_window_d_prcnt = 0.85;//0 to 0.85
 var g_prm_house_window_h_prcnt = 0.65;//0 to 0.85
+
 var g_prm_house_top_lug = true;
 var g_prm_house_right_lug = true;
 var g_prm_house_left_lug = true;
 var g_prm_house_bottom_lug = true;
-
+var g_prm_house_lugLongSideLen = 12;
+var g_prm_house_lugShortSideLen = 6;
+var g_prm_house_lugInnerHoleLen = 3;
 
 function main () {
     var _w = g_prm_drawer_width + g_prm_house_tolerance*2 + g_prm_house_thickness*2;
@@ -38,13 +41,12 @@ function main () {
     body = addLugs(body);
 
     return [body.translate([0,0,0])];
-    //return [body.translate([0,0,-_sh/2])];
     //return [body.translate([0,0,_sh/2])];
 
-    function addLugs(body){
-        var longSideLen = 12;
-        var shortSideLen = 6;
-        var innerHoleLen = 3;
+    function addLugs(body) {
+        var longSideLen = g_prm_house_lugLongSideLen;
+        var shortSideLen = g_prm_house_lugShortSideLen;
+        var innerHoleLen = g_prm_house_lugInnerHoleLen;
         var thick = 2;
         var verticalLugsOffset = 3;
         var gapTolerance = 0.3;
@@ -173,6 +175,5 @@ function main () {
 
         return body;
     }
-    
+        
 }
-
