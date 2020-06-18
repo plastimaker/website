@@ -16,11 +16,11 @@ var g_prm_house_lugInnerHoleLen = 3;
 function main () {
     var _d = g_prm_drawer_depth + g_prm_house_tolerance + g_prm_house_thickness;
 
-    var body = addHangers(body);
+    var body = createHanger().translate([-10,-_d/2,0]);
 
-    return [body, body.mirroredX().translate([10,0,0])];
+    return [body, body.mirroredX().translate([0,0,0])];
 
-    function addHangers(body) {
+    function createHanger() {
         var w = g_prm_house_lugShortSideLen;
         var ih = g_prm_house_lugInnerHoleLen;
         var il = g_prm_house_lugLongSideLen;
@@ -64,7 +64,6 @@ function main () {
         //return p;
         //return hanger;
         return union(hanger, hangerObject());
-        return body;
     }
 
     function hangerObject() { 

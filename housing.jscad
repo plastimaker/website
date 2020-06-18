@@ -23,6 +23,7 @@ var g_prm_house_bottom_lug = true;
 var g_prm_house_lugLongSideLen = 12;
 var g_prm_house_lugShortSideLen = 6;
 var g_prm_house_lugInnerHoleLen = 3;
+var g_prm_house_lugThickness = 2;
 
 function main () {
     var _w = g_prm_drawer_width + g_prm_house_tolerance*2 + g_prm_house_thickness*2;
@@ -40,15 +41,16 @@ function main () {
     body = addTopCover(body);
     body = addLugs(body);
 
-    return [body.translate([0,0,0])];
+    return [body.rotateX(-90).translate([0,0,_d/2])];
+    //return [body.translate([0,0,0])];
     //return [body.translate([0,0,_sh/2])];
 
     function addLugs(body) {
         var longSideLen = g_prm_house_lugLongSideLen;
         var shortSideLen = g_prm_house_lugShortSideLen;
         var innerHoleLen = g_prm_house_lugInnerHoleLen;
-        var thick = 2;
-        var verticalLugsOffset = 3;
+        var thick = g_prm_house_lugThickness;
+        var sidesLugsOffset = 3;
         var gapTolerance = 0.3;
         var lug = difference(
                 polygon([
@@ -63,22 +65,22 @@ function main () {
 
         if(g_prm_house_top_lug) {
             var topLugs = lug.rotateY(90).rotateZ(180).translate([thick/2,-longSideLen,0]);
-            var topLugsRight = topLugs.translate([ _sw/2 - thick/2 - thick - verticalLugsOffset - gapTolerance,_d/2,_sh/2]);
-            var topLugsLeft = topLugs.translate ([-_sw/2 + thick/2 + thick + verticalLugsOffset + gapTolerance,_d/2,_sh/2]);
+            var topLugsRight = topLugs.translate([ _sw/2 - thick/2 - thick - sidesLugsOffset - gapTolerance,_d/2,_sh/2]);
+            var topLugsLeft = topLugs.translate ([-_sw/2 + thick/2 + thick + sidesLugsOffset + gapTolerance,_d/2,_sh/2]);
             topLugsRight = union(topLugsRight,topLugsRight.translate([0,-_d+longSideLen,0]));
             topLugsLeft = union(topLugsLeft,topLugsLeft.translate([0,-_d+longSideLen,0]));
             body = union(body, topLugsRight, topLugsLeft);
         }
         if(g_prm_house_bottom_lug) {
             var bottomLugs = lug.rotateY(-90).rotateZ(180).translate([-thick/2,-longSideLen,-_sh]);
-            var bottomLugsRight = bottomLugs.translate([ _sw/2 - thick/2 - verticalLugsOffset,_d/2,_sh/2]);
-            var bottomLugsLeft = bottomLugs.translate ([-_sw/2 + thick/2 + verticalLugsOffset,_d/2,_sh/2]);
+            var bottomLugsRight = bottomLugs.translate([ _sw/2 - thick/2 - sidesLugsOffset,_d/2,_sh/2]);
+            var bottomLugsLeft = bottomLugs.translate ([-_sw/2 + thick/2 + sidesLugsOffset,_d/2,_sh/2]);
             bottomLugsRight = union(bottomLugsRight,bottomLugsRight.translate([0,-_d+longSideLen,0]));
             bottomLugsLeft = union(bottomLugsLeft,bottomLugsLeft.translate([0,-_d+longSideLen,0]));
             body = union(body, bottomLugsRight, bottomLugsLeft);
         }
         if(g_prm_house_left_lug) {
-            var offset = thick/2 + thick + verticalLugsOffset + gapTolerance;
+            var offset = thick/2 + thick + sidesLugsOffset + gapTolerance;
             var leftLugs = lug.rotateX(180).translate([0,-longSideLen,thick/2]);
             var leftLugsTop = leftLugs.translate   ([-_sw/2,_d/2, _sh/2 - offset]);
             var leftLugsBottom = leftLugs.translate([-_sw/2,_d/2,-_sh/2 + offset]);
@@ -94,7 +96,7 @@ function main () {
             body = union(body,cornerSupport);
         }
         if(g_prm_house_right_lug) {
-            var offset = thick/2 + verticalLugsOffset;
+            var offset = thick/2 + sidesLugsOffset;
             var rightLugs = lug.rotateY(180).rotateX(180).translate([0,-longSideLen,-thick/2]);
             var rightLugsTop = rightLugs.translate   ([_sw/2,_d/2, _sh/2 - offset]);
             var rightLugsBottom = rightLugs.translate([_sw/2,_d/2,-_sh/2 + offset]);
