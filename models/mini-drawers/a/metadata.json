@@ -1,0 +1,47 @@
+{
+    "title": "Mini Drawers",
+    "parts": [
+        {
+            "title": "Drawer",
+            "name": "drawer-001",
+            "image": "drawer-400x300.jpg"
+        },
+        {
+            "title": "Housing",
+            "name": "housing-001",
+            "image": "housing-400x300.jpg"
+        },
+        {
+            "title": "Hangers",
+            "name": "hangers-001",
+            "image": "hangers-400x300.jpg"
+        },
+        {
+            "title": "Wedges",
+            "name": "wedges-001",
+            "image": "wedges-400x300.jpg"
+        }
+    ],
+    "params": {
+        "drawer_width": 70,
+        "drawer_depth": 120,
+        "drawer_height": 24,
+        "drawer_thickness": 0.8,
+        "drawer_numOfSections": 6,
+        "house_h_count": 2,
+        "house_v_count": 5,
+        "house_thickness": 1.6,
+        "house_tolerance": 0.5,
+        "house_window_w_prcnt": 0.80,
+        "house_window_d_prcnt": 0.85,
+        "house_window_h_prcnt": 0.65,
+        "house_top_lug": true,
+        "house_right_lug": true,
+        "house_left_lug": true,
+        "house_bottom_lug": true,
+        "house_lugLongSideLen": 12,
+        "house_lugShortSideLen": 6,
+        "house_lugInnerHoleLen": 3,
+        "house_lugThickness": 2
+    }
+}

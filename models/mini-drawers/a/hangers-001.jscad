@@ -4,26 +4,17 @@
 // revision   : A1
 // file       : hangers.jscad
 
-var g_prm_drawer_depth = 120;
-//---------------------------------------------
-var g_prm_house_thickness = 1.6;
-var g_prm_house_tolerance = 0.5;
-var g_prm_house_lugLongSideLen = 12;
-var g_prm_house_lugShortSideLen = 6;
-var g_prm_house_lugInnerHoleLen = 3;
-
-
-function main () {
-    var _d = g_prm_drawer_depth + g_prm_house_tolerance + g_prm_house_thickness;
+function main (params) {
+    var _d = params.drawer_depth + params.house_tolerance + params.house_thickness;
 
     var body = createHanger().translate([-10,-_d/2,0]);
 
     return [body, body.mirroredX().translate([0,0,0])];
 
     function createHanger() {
-        var w = g_prm_house_lugShortSideLen;
-        var ih = g_prm_house_lugInnerHoleLen;
-        var il = g_prm_house_lugLongSideLen;
+        var w = params.house_lugShortSideLen;
+        var ih = params.house_lugInnerHoleLen;
+        var il = params.house_lugLongSideLen;
         var d = _d;
         var h = 4;
         
@@ -2364,3 +2355,63 @@ function main () {
     }
         
 }
+
+function getParameterDefinitions() {
+    return [
+      {
+        name: 'drawer_depth',
+        type: 'float',
+        initial: (window['g_prm_drawer_depth']!==undefined ? g_prm_drawer_depth : 120),
+        step: 0.1,
+        min: 40,
+        caption: 'Drawer depth (in mm):'
+      },
+      {
+        name: 'house_thickness',
+        type: 'float',
+        initial: (window['g_prm_house_thickness']!==undefined ? g_prm_house_thickness : 1.6),
+        step: 0.1,
+        min: 0.3,
+        max: 4,
+        caption: 'Housing wall thickness (in mm):'
+      },
+      {
+        name: 'house_tolerance',
+        type: 'float',
+        initial: (window['g_prm_house_tolerance']!==undefined ? g_prm_house_tolerance : 0.5),
+        step: 0.1,
+        min: 0.1,
+        max: 1,
+        caption: 'Wall to drawer tolerance (in mm):'
+      },
+      {
+        name: 'house_lugLongSideLen',
+        type: 'float',
+        initial: (window['g_prm_house_lugLongSideLen']!==undefined ? g_prm_house_lugLongSideLen : 12),
+        step: 0.1,
+        min: 12,
+        max: 20,
+        caption: 'Lug Long Side Length (in mm) (Advance):'
+      },
+      {
+        name: 'house_lugShortSideLen',
+        type: 'float',
+        initial: (window['g_prm_house_lugShortSideLen']!==undefined ? g_prm_house_lugShortSideLen : 6),
+        step: 0.1,
+        min: 6,
+        max: 11,
+        caption: 'Lug Short Side Length (in mm) (Advance):'
+      },
+      {
+        name: 'house_lugInnerHoleLen',
+        type: 'float',
+        initial: (window['g_prm_house_lugInnerHoleLen']!==undefined ? g_prm_house_lugInnerHoleLen : 3),
+        step: 0.1,
+        min: 3,
+        max: 5,
+        caption: 'Lug Inner Hole Length (in mm) (Advance):'
+      }
+  
+    ];
+  }
+  

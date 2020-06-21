@@ -1,0 +1,207 @@
+body{padding-top:110px}
+body.fullheader{padding-top:0px}
+
+header.masthead {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    background-image: url("../img/drawers-header-bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+  header.masthead .masthead-subheading {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.5rem;
+    margin-bottom: 25px;
+  }
+  header.masthead .masthead-heading {
+    font-size: 3.25rem;
+    font-weight: 700;
+    line-height: 3.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    header.masthead {
+      padding-top: 17rem;
+      padding-bottom: 12.5rem;
+    }
+    header.masthead .masthead-subheading {
+      font-size: 2.25rem;
+      font-style: italic;
+      line-height: 2.25rem;
+      margin-bottom: 2rem;
+    }
+    header.masthead .masthead-heading {
+      font-size: 4.5rem;
+      font-weight: 700;
+      line-height: 4.5rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .page-section {
+    padding: 6rem 0;
+  }
+  .page-section h2.section-heading {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .page-section h3.section-subheading {
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 4rem;
+  }
+
+  #portfolio .portfolio-item {
+    max-width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #portfolio .portfolio-item .portfolio-link {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+  }
+  #portfolio .portfolio-item .portfolio-link .portfolio-hover {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(155, 227, 255, 0.534);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity ease-in-out 0.25s;
+  }
+  #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+    font-size: 1.25rem;
+    color: white;
+  }
+  #portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {
+    opacity: 1;
+  }
+  #portfolio .portfolio-item .portfolio-caption {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #fff;
+  }
+  #portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+  #portfolio .portfolio-item .portfolio-caption .portfolio-caption-subheading {
+    font-style: italic;
+  }
+  
+  .portfolio-modal .modal-dialog {
+    margin: 1rem;
+    max-width: 100vw;
+  }
+  .portfolio-modal .modal-content {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    text-align: center;
+  }
+  .portfolio-modal .modal-content h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  .portfolio-modal .modal-content p.item-intro {
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+  .portfolio-modal .modal-content p {
+    margin-bottom: 2rem;
+  }
+  .portfolio-modal .modal-content ul.list-inline {
+    margin-bottom: 2rem;
+  }
+  .portfolio-modal .modal-content img {
+    margin-bottom: 2rem;
+  }
+  .portfolio-modal .close-modal {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    background-color: transparent;
+  }
+  .portfolio-modal .close-modal:hover {
+    opacity: 0.3;
+  }
+
+.jscad-container-custom {
+    margin: 0 auto;
+    display: table;
+    padding: 0px;
+    border: none;
+}
+.jscad-container-custom #viewerContext{
+    height: 500px;
+    width: 700px;
+    border-color: #c5c5c5;
+    margin: 0px 0px 15px 0px;
+}
+.jscad-container-custom #parametersdiv{
+    width: 100%;
+    margin: 0px;
+}
+.jscad-container-custom #updateButton {
+    margin: 2px 18px 2px 8px;
+    border:  thin solid #668ea5;
+    padding: 5px 20px;
+    border-radius: 4px;
+    background: #1696e0;
+    color: #fff;
+}
+.jscad-container-custom #instantUpdateLabel{
+    padding: 8px 5px 5px 5px;
+}
+.jscad-container-custom .parameterstable{
+    margin-left: 10px;
+}
+.jscad-container-custom #parametersdiv td{
+    padding: 3px;
+}
+
+#jscadparts .part-text {
+background-color: #fff; padding: 1px; margin-bottom: 8px;
+}
+#jscadparts .part-item {
+    max-width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+#jscadparts .part-item .part-link {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+#jscadparts .part-item .part-link .part-hover {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(155, 227, 255, 0.534);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity ease-in-out 0.25s;
+}
+#jscadparts .part-item .part-link .part-hover .part-hover-content {
+    font-size: 1.25rem;
+    color: white;
+}
+#jscadparts .part-item .part-link:hover .part-hover {
+    opacity: 1;
+}
