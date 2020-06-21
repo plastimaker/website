@@ -27,17 +27,32 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="models">3D Printable
-              Models<span class="caret"></span></a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="models">3D Printable Models<span class="caret"></span></a>
             <div class="dropdown-menu" aria-labelledby="models">
               <a class="dropdown-item" href="#">Mini Drawers</a>
             </div>
           </li>
         </ul>
-
       </div>
     </div>
   </div>
+
+  <section>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="bs-component">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item breadcrumb-item-model"><a href="#">Library</a></li>
+              <li class="breadcrumb-item active">Parts</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+  </section>
 
   <section class="bg-light">
     <div class="container">
@@ -45,7 +60,7 @@
         <div class="col-xl-8" id="jscadmagic"></div>
         <div class="col-xl-2" id="jscadparts">
           <!-- <div class="part-item">
-            <a class="part-link" href="model.html?m=mini-drawers%7Ca%7Cdrawer-001">
+            <a class="part-link" href="parts.html?m=mini-drawers%7Ca%7Cdrawer-001">
               <div class="part-hover">
                 <div class="part-hover-content"><i class="fas fa-hand-pointer fa-3x"></i></div>
               </div>
@@ -58,27 +73,50 @@
     </div>
   </section>
 
+  <div class="p-4" style="background-color: #e3e7eb;">&nbsp;</div>
+
+  <footer class="footer py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4 text-lg-left">Copyright © PlastiMaker.com 2020</div>
+        <div class="col-lg-5 my-3 my-lg-0">
+          <a class="footer-social-link d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-twitter"
+            href="https://twitter.com/plastimaker">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="footer-social-link d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-youtube"
+            href="https://www.youtube.com/channel/UCxkXrOzBrhO3GQer8txArHw">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a class="footer-social-link d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-facebook"
+            href="https://www.facebook.com/PlastiMaker">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+        <div class="col-lg-3 text-lg-right">
+          <a class="mr-3" href="#!">Privacy Policy</a>
+          <a href="#!">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script src="../js/jquery.min.js"></script>
   <script src="../js/popper.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../openjscad/min.js"></script>
 
   <script>
-    var g_prm_drawer_width = 70;
-    var g_prm_drawer_depth = 120;
-    var g_prm_drawer_height = 24;
-    var g_prm_drawer_thickness = 0.8;
-    var g_prm_drawer_numOfSections = 6;//>=1
-
 
     $(function () {
       var model = qs('m').split('|');
 
       $.getJSON(model[0] + '/' + model[1] + '/metadata.json', function (info) {
         document.title = document.title + ': ' + info.title;
+        $('.breadcrumb-item-model a').text(info.title).attr('href', info.name + '.html');
 
         $.each(info.params, function (k, v) {
-          window['g_prm_'+k]=v;
+          window['g_prm_' + k] = v;
         });
 
         for (var i = 0; i < info.parts.length; i++) {
@@ -109,10 +147,11 @@
           '<div class="jscad-container jscad-container-custom">' +
           '<div id="header"><div id="errordiv">This should not take too long?!</div></div>' +
           '<div oncontextmenu="return false;" id="viewerContext"></div>' +
-          '<div id="tail" style="display: none;"><div id="statusdiv"></div></div>' +
+          '<div id="statusdiv"></div>' +
           '</div>';
 
         $('#jscadmagic').html(content);
+        //badge badge-primary
 
 
         var gProcessor = JsCadInit({
@@ -126,6 +165,12 @@
             }
           }
         });
+        $('#statusspan').addClass('badge badge-primary');
+        $('#statusbuttons button').addClass('btn btn-primary');
+        $('#statusbuttons select').addClass('form-control');
+        $('#updateButton').addClass('btn btn-primary');
+        $('#instantUpdate').prop('checked', true);
+
 
         $.get(model + '/' + version + '/' + part + '.jscad', function (data) {
           gProcessor.setJsCad(data);
@@ -133,13 +178,13 @@
           // bind params change
           $('input[type="number"]').bind("change paste keyup", function () {
             var fldName = 'g_prm_' + $(this).attr('name');
-            if (window[fldName]!==undefined) {
+            if (window[fldName] !== undefined) {
               window[fldName] = parseFloat($(this).val());
             }
           });
-          $('input[type="checkbox"]').change(function() {
+          $('input[type="checkbox"]').change(function () {
             var fldName = 'g_prm_' + $(this).attr('name');
-            if (window[fldName]!==undefined) {
+            if (window[fldName] !== undefined) {
               window[fldName] = this.checked;
             }
           });
