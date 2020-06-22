@@ -10,12 +10,13 @@
   <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen">
   <link rel="stylesheet" href="../openjscad/min.css" type="text/css">
   <link rel="stylesheet" href="../css/custom.css" media="screen">
-
-
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="../img/favicons/site.webmanifest">
 </head>
 
 <body>
-
 
   <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
     <div class="container">
@@ -29,11 +30,12 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="models">3D Printable Models<span class="caret"></span></a>
             <div class="dropdown-menu" aria-labelledby="models">
-              <a class="dropdown-item" href="#">Mini Drawers</a>
+              <a class="dropdown-item" href="mini-drawers.html">Mini Drawers</a>
             </div>
           </li>
         </ul>
       </div>
+      <a class="btn btn-info btn-sm" href="https://www.paypal.me/plastimaker" target="new">Donate <i class="fa fa-long-arrow-alt-right"></i></a>
     </div>
   </div>
 
@@ -73,6 +75,23 @@
     </div>
   </section>
 
+  <div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="display-4 text-center"><i class="fas fa-donate"></i></div>
+          <div class="text-center" style="font-size: 2rem;">
+            <p>Your donation helps improving and building new models.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-secondary" data-dismiss="modal">Maybe later...</a>
+          <a class="btn btn-info" href="https://www.paypal.me/plastimaker" target="new" onclick="$('#donateModal').modal('hide')">Donate <i class="fa fa-long-arrow-alt-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="p-4" style="background-color: #e3e7eb;">&nbsp;</div>
 
   <footer class="footer py-4">
@@ -109,9 +128,11 @@
   <script>
 
     $(function () {
-      var model = qs('m').split('|');
+      var _model = qs('m').split('|');
+      var _tipInterval = null;
+      var _tipShown=false;
 
-      $.getJSON(model[0] + '/' + model[1] + '/metadata.json', function (info) {
+      $.getJSON(_model[0] + '/' + _model[1] + '/metadata.json', function (info) {
         document.title = document.title + ': ' + info.title;
         $('.breadcrumb-item-model a').text(info.title).attr('href', info.name + '.html');
 
@@ -124,7 +145,7 @@
             '<div class="part-item">' +
             '<a class="part-link" href="javascript:;" name="' + info.parts[i].name + '">' +
             '<div class="part-hover"><div class="part-hover-content"><i class="fas fa-hand-pointer fa-3x"></i></div></div>' +
-            '<img class="img-fluid" src="' + model[0] + '/img/' + info.parts[i].image + '" alt="">' +
+            '<img class="img-fluid" src="' + _model[0] + '/img/' + info.parts[i].image + '" alt="">' +
             '</a>' +
             '</div>' +
             '<div class="part-text text-center"><strong>' + info.parts[i].title + '</strong></div>');
@@ -136,10 +157,10 @@
                 window.removeEventListener('resize', value);
               });
             }
-            loadModel(model[0], model[1], $(this).attr('name'));
+            loadModel(_model[0], _model[1], $(this).attr('name'));
           });
         }
-        loadModel(model[0], model[1], model[2]);
+        loadModel(_model[0], _model[1], _model[2]);
       });
 
       function loadModel(model, version, part) {
@@ -151,8 +172,6 @@
           '</div>';
 
         $('#jscadmagic').html(content);
-        //badge badge-primary
-
 
         var gProcessor = JsCadInit({
           viewer: {
@@ -168,9 +187,22 @@
         $('#statusspan').addClass('badge badge-primary');
         $('#statusbuttons button').addClass('btn btn-primary');
         $('#statusbuttons select').addClass('form-control');
+        $('#statusbuttons').prepend('<button id="donateButton" class="btn btn-outline-primary mr-3" data-toggle="modal" data-target="#donateModal">Tip The Designer</button>');
         $('#updateButton').addClass('btn btn-primary');
         $('#instantUpdate').prop('checked', true);
-
+        if(_tipInterval != null)
+          clearInterval(_tipInterval);
+        if(!_tipShown){
+          _tipInterval = setInterval(function () {
+            if ($('.downloadOutputFileLink').is(':visible')) {
+              clearInterval(_tipInterval);
+              _tipInterval = null;
+              _tipShown = true;
+              $('#donateButton').trigger('click');
+            }
+          },500);
+        }
+        
 
         $.get(model + '/' + version + '/' + part + '.jscad', function (data) {
           gProcessor.setJsCad(data);
@@ -196,6 +228,7 @@
         var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
         return match && decodeURIComponent(match[1].replace(/\+/g, " "));
       }
+
     });
 
   </script>
