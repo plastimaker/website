@@ -202,8 +202,7 @@ function getParameterDefinitions() {
       min: 1,
       max: 20,
       caption: 'Number of vertical drawers:'
-    }
-    ,
+    },
     {
       name: 'house_thickness',
       type: 'float',
@@ -212,8 +211,7 @@ function getParameterDefinitions() {
       min: 0.3,
       max: 4,
       caption: 'Housing wall thickness (in mm):'
-    }
-    ,
+    },
     {
       name: 'house_tolerance',
       type: 'float',
@@ -222,8 +220,7 @@ function getParameterDefinitions() {
       min: 0.1,
       max: 1,
       caption: 'Wall to drawer tolerance (in mm):'
-    }
-    ,
+    },
     {
       name: 'house_window_w_prcnt',
       type: 'float',
@@ -231,9 +228,8 @@ function getParameterDefinitions() {
       step: 0.01,
       min: 0,
       max: 0.85,
-      caption: 'Horizontal window clearance (as %):'
-    }
-    ,
+      caption: 'Window clearance on X axis (0.0 - 0.85):'
+    },
     {
       name: 'house_window_d_prcnt',
       type: 'float',
@@ -241,9 +237,8 @@ function getParameterDefinitions() {
       step: 0.01,
       min: 0,
       max: 0.85,
-      caption: 'Vertical window clearance (as %):'
-    }
-    ,
+      caption: 'Window clearance on Y axis (0.0 - 0.85):'
+    },
     {
       name: 'house_window_h_prcnt',
       type: 'float',
@@ -251,17 +246,15 @@ function getParameterDefinitions() {
       step: 0.01,
       min: 0,
       max: 0.85,
-      caption: 'Back window clearance (as %):'
-    }
-    ,
+      caption: 'Window clearance on Z axis (0.0 - 0.85):'
+    },
     {
       name: 'house_top_lug',
       type: 'checkbox',
       initial: (window['g_prm_house_top_lug']!==undefined ? g_prm_house_top_lug : true),
       checked: (window['g_prm_house_top_lug']!==undefined ? g_prm_house_top_lug : true),
       caption: 'Include top lugs for attaching/extending:'
-    }
-    ,
+    },
     {
       name: 'house_right_lug',
       type: 'checkbox',
