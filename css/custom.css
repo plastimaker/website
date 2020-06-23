@@ -1,8 +1,8 @@
 body {
-    padding-top: 70px
+    padding-top: 55px
 }
 
-body.fullheader {
+body.nomenu {
     padding-top: 0px
 }
 
@@ -10,11 +10,15 @@ header.masthead {
     padding-top          : 10.5rem;
     padding-bottom       : 6rem;
     color                : #fff;
-    background-image     : url("../img/drawers-header-bg.jpg");
+    background-image     : url("../img/drawers-header-bg-4.jpg"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-blend-mode: overlay;
     background-repeat    : no-repeat;
     background-attachment: scroll;
     background-position  : center center;
     background-size      : cover;
+}
+header.masthead .logo {
+    margin-bottom: 25px;;
 }
 
 header.masthead .masthead-subheading {
@@ -35,10 +39,18 @@ header.masthead .row {
     -webkit-filter: drop-shadow(0px 0px 0px rgba(0,0,0,0.6));
     filter: drop-shadow(0px 0px 18px rgba(0,0,0,0.6));
 }
+@media (max-width: 991px) {
+    header.masthead .masthead-subheading  {
+        text-align: center;
+    }
+    header.masthead .masthead-heading {
+        text-align: center;
+    }
+}
 
 @media (min-width: 768px) {
     header.masthead {
-        padding-top   : 12rem;
+        padding-top   : 10rem;
         padding-bottom: 10rem;
     }
 
@@ -302,4 +314,8 @@ header.masthead .row {
     height: 4rem;
     width: 4rem;
     font-size: 1.5rem;
+}
+
+.breadcrumb{
+    margin-top: 15px;
 }
