@@ -183,15 +183,14 @@ header.masthead .row {
 }
 
 .jscad-container-custom {
-    margin : 0 auto;
-    display: table;
     padding: 0px;
     border : none;
+    min-width: auto;
 }
 
 .jscad-container-custom #viewerContext {
     height      : 500px;
-    width       : 700px;
+    width       : 100%;
     border-color: #c5c5c5;
     margin      : 0px 0px 10px 0px;
 }
@@ -249,9 +248,9 @@ header.masthead .row {
     padding: 3px;
 }
 
-.jscad-container-custom #parametersdiv td.caption {
+/* .jscad-container-custom #parametersdiv td.caption {
     min-width: 300px;
-}
+} */
 
 #jscadparts .part-text {
     background-color: #fff;
