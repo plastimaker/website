@@ -5,7 +5,10 @@
 // file       : drawer.jscad
 
 function main(params) {
+  //These vars are linked to totals div (update both when necessary)
+  var _handleSize = 8;
   var _holderDepth = 1.4;
+  //-----------------------------------------------------------
   var _windowElevation = params.drawer_thickness + 4.2;
 
   var body = cube({
@@ -20,7 +23,7 @@ function main(params) {
   return [body.translate([0, 0, params.drawer_height / 2])];
 
   function addHandle(body) {
-    var size = 8;
+    var size = _handleSize;
     var height = _windowElevation;
     var handle = roundRect(size, size, height, [0.01, 0.01, 1, 1]);
     var offset = size - (size * 0.18);
@@ -96,6 +99,12 @@ function main(params) {
 }
 
 function getParameterDefinitions() {
+  window.g_getTotals = function () {
+    return{
+      'width':Math.round((g_prm_drawer_width+g_prm_drawer_thickness*2)*10)/10,
+      'depth':Math.round((g_prm_drawer_depth + 8 + 1.4)*10)/10
+    }
+  }
   return [
     {
       name: 'drawer_width',

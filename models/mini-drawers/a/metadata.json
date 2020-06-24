@@ -1,6 +1,7 @@
 {
     "title": "Mini Drawers",
     "name": "mini-drawers",
+    "version": "a",
     "parts": [
         {
             "title": "Drawer",

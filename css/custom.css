@@ -10,15 +10,17 @@ header.masthead {
     padding-top          : 10.5rem;
     padding-bottom       : 6rem;
     color                : #fff;
-    background-image     : url("../img/drawers-header-bg-4.jpg"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    background-image     : url("../img/drawers-header-bg-4.jpg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     background-blend-mode: overlay;
     background-repeat    : no-repeat;
     background-attachment: scroll;
     background-position  : center center;
     background-size      : cover;
 }
+
 header.masthead .logo {
-    margin-bottom: 25px;;
+    margin-bottom: 25px;
+    ;
 }
 
 header.masthead .masthead-subheading {
@@ -36,13 +38,15 @@ header.masthead .masthead-heading {
 }
 
 header.masthead .row {
-    -webkit-filter: drop-shadow(0px 0px 0px rgba(0,0,0,0.6));
-    filter: drop-shadow(0px 0px 18px rgba(0,0,0,0.6));
+    -webkit-filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.6));
+    filter        : drop-shadow(0px 0px 18px rgba(0, 0, 0, 0.6));
 }
+
 @media (max-width: 991px) {
-    header.masthead .masthead-subheading  {
+    header.masthead .masthead-subheading {
         text-align: center;
     }
+
     header.masthead .masthead-heading {
         text-align: center;
     }
@@ -55,13 +59,13 @@ header.masthead .row {
     }
 
     header.masthead .masthead-subheading {
-        font-size    : 1.75rem;
+        font-size: 1.75rem;
     }
 
     header.masthead .masthead-heading {
-        font-size    : 4.5rem;
-        font-weight  : 700;
-        line-height  : 4.5rem;
+        font-size  : 4.5rem;
+        font-weight: 700;
+        line-height: 4.5rem;
     }
 }
 
@@ -84,7 +88,7 @@ header.masthead .row {
 
 .footer {
     text-align: center;
- }
+}
 
 #portfolio .portfolio-item {
     max-width   : 25rem;
@@ -183,8 +187,8 @@ header.masthead .row {
 }
 
 .jscad-container-custom {
-    padding: 0px;
-    border : none;
+    padding  : 0px;
+    border   : none;
     min-width: auto;
 }
 
@@ -248,9 +252,30 @@ header.masthead .row {
     padding: 3px;
 }
 
-/* .jscad-container-custom #parametersdiv td.caption {
-    min-width: 300px;
-} */
+#totalsDiv {
+    float       : right;
+    color       : #999;
+    font-size   : 0.75rem;
+    margin-right: 15px;
+    font-weight : normal;
+}
+
+#totalWidth,
+#totalDepth {
+    font-weight: bold;
+}
+
+.downloadParametersLink{
+    display: none;
+}
+
+.downloadParametersLink::after {
+    content        : "\00a0\00a0|\00a0\00a0";
+    color          : black;
+    text-decoration: none;
+    display        : inline-block;
+    white-space    : pre-wrap;
+}
 
 #jscadparts .part-text {
     background-color: #fff;
@@ -295,26 +320,29 @@ header.masthead .row {
 }
 
 .btn-twitter {
-    color: #fff;
+    color           : #fff;
     background-color: #1da1f2;
-    border-color: #1da1f2;
+    border-color    : #1da1f2;
 }
-.btn-facebook{
-    color: #fff;
+
+.btn-facebook {
+    color           : #fff;
     background-color: #3b5998;
-    border-color: #3b5998;
+    border-color    : #3b5998;
 }
-.btn-youtube{
-    color: #fff;
+
+.btn-youtube {
+    color           : #fff;
     background-color: red;
-    border-color: red;
+    border-color    : red;
 }
+
 .footer-social-link {
-    height: 4rem;
-    width: 4rem;
+    height   : 4rem;
+    width    : 4rem;
     font-size: 1.5rem;
 }
 
-.breadcrumb{
+.breadcrumb {
     margin-top: 15px;
 }

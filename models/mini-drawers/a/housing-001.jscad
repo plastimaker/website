@@ -160,6 +160,18 @@ function main(params) {
 }
 
 function getParameterDefinitions() {
+  window.g_getTotals = function () {
+    var _w = g_prm_drawer_width + g_prm_house_tolerance * 2 + g_prm_house_thickness * 2;
+    var _h = g_prm_drawer_height + g_prm_house_tolerance * 2 + g_prm_house_thickness * 2;
+
+    var _sw = _w * g_prm_house_h_count - ((g_prm_house_h_count - 1) * g_prm_house_thickness);//stack total width
+    var _sh = _h * g_prm_house_v_count - ((g_prm_house_v_count - 1) * g_prm_house_thickness);//stack total height
+    
+    return{
+      'width':Math.round((_sw+g_prm_house_lugShortSideLen*2)*10)/10,
+      'depth':Math.round((_sh+g_prm_house_lugShortSideLen*2)*10)/10
+    }
+  }
   return [
     {
       name: 'drawer_width',
