@@ -112,7 +112,7 @@ function main(params) {
     var thick = params.house_thickness*layerBandThickness/100;
     var bandOffset = _d/(numOfLayerBands+1);
 
-    var vBand = cube({size: [thick,layerBandHeight, _d], center: true}).translate([-_sw/2 + params.house_thickness/2, _d/2, 0]);
+    var vBand = cube({size: [thick,layerBandHeight, _sh], center: true}).translate([-_sw/2 + params.house_thickness/2, _d/2, 0]);
 
     for(var j=0; j<=params.house_h_count; j++){
       for(var i=0; i<numOfLayerBands; i++){
