@@ -103,7 +103,7 @@ function main(params) {
 
   function addLayerBands(body) {
     var numOfLayerBands = params.layer_band_count; //from 0 to 6
-    var layerBandThickness = params.layer_band_thickness;//percentage of house_thickness. From %1 to %100
+    var layerBandThickness = 100;//params.layer_band_thickness;//percentage of house_thickness. From %1 to %100
     var layerBandHeight = params.layer_band_height;//from 1 to 5
 
     if(numOfLayerBands == 0)
@@ -297,17 +297,17 @@ function getParameterDefinitions() {
       step: 1,
       min: 0,
       max: 6,
-      caption: 'Number of support layer bands (0 - 6):'
+      caption: 'Layer bands\' supports count (0 - 6):'
     },
-    {
-      name: 'layer_band_thickness',
-      type: 'int',
-      initial: (window['g_prm_house_layer_band_thickness']!==undefined ? g_prm_house_layer_band_thickness : 100),
-      step: 1,
-      min: 1,
-      max: 100,
-      caption: 'Layer band thickness (%1 - %100):'
-    },
+    // {
+    //   name: 'layer_band_thickness',
+    //   type: 'int',
+    //   initial: (window['g_prm_house_layer_band_thickness']!==undefined ? g_prm_house_layer_band_thickness : 100),
+    //   step: 1,
+    //   min: 1,
+    //   max: 100,
+    //   caption: 'Layer band thickness (%1 - %100):'
+    // },
     {
       name: 'layer_band_height',
       type: 'float',
@@ -348,7 +348,7 @@ function getParameterDefinitions() {
     {
       name: 'house_lugLongSideLen',
       type: 'float',
-      initial: (window['g_prm_house_lugLongSideLen']!==undefined ? g_prm_house_lugLongSideLen : 12),
+      initial: (window['g_prm_house_lugLongSideLen']!==undefined ? g_prm_house_lugLongSideLen : 16),
       step: 0.1,
       min: 12,
       max: 20,
@@ -357,7 +357,7 @@ function getParameterDefinitions() {
     {
       name: 'house_lugShortSideLen',
       type: 'float',
-      initial: (window['g_prm_house_lugShortSideLen']!==undefined ? g_prm_house_lugShortSideLen : 6),
+      initial: (window['g_prm_house_lugShortSideLen']!==undefined ? g_prm_house_lugShortSideLen : 9),
       step: 0.1,
       min: 6,
       max: 11,
@@ -366,7 +366,7 @@ function getParameterDefinitions() {
     {
       name: 'house_lugInnerHoleLen',
       type: 'float',
-      initial: (window['g_prm_house_lugInnerHoleLen']!==undefined ? g_prm_house_lugInnerHoleLen : 3),
+      initial: (window['g_prm_house_lugInnerHoleLen']!==undefined ? g_prm_house_lugInnerHoleLen : 3.2),
       step: 0.1,
       min: 3,
       max: 5,
@@ -375,7 +375,7 @@ function getParameterDefinitions() {
     {
       name: 'house_lugThickness',
       type: 'float',
-      initial: (window['g_prm_house_lugThickness']!==undefined ? g_prm_house_lugThickness : 2),
+      initial: (window['g_prm_house_lugThickness']!==undefined ? g_prm_house_lugThickness : 4),
       step: 0.1,
       min: 2,
       max: 4,

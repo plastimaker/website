@@ -38,15 +38,14 @@
         "house_window_d_prcnt": 0.85,
         "house_window_h_prcnt": 0.65,
         "house_layer_band_count":1,
-        "house_layer_band_thickness":100,
         "house_layer_band_height":2,
         "house_top_lug": true,
         "house_right_lug": true,
         "house_left_lug": true,
         "house_bottom_lug": true,
-        "house_lugLongSideLen": 12,
-        "house_lugShortSideLen": 6,
-        "house_lugInnerHoleLen": 3,
-        "house_lugThickness": 2
+        "house_lugLongSideLen": 16,
+        "house_lugShortSideLen": 9,
+        "house_lugInnerHoleLen": 3.2,
+        "house_lugThickness": 4
     }
 }
