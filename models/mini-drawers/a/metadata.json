@@ -10,7 +10,7 @@
         },
         {
             "title": "Housing",
-            "name": "housing-001",
+            "name": "housing-002",
             "image": "housing-400x300.jpg"
         },
         {
@@ -37,6 +37,9 @@
         "house_window_w_prcnt": 0.80,
         "house_window_d_prcnt": 0.85,
         "house_window_h_prcnt": 0.65,
+        "house_layer_band_count":1,
+        "house_layer_band_thickness":100,
+        "house_layer_band_height":2,
         "house_top_lug": true,
         "house_right_lug": true,
         "house_left_lug": true,
