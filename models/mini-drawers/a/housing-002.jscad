@@ -378,7 +378,7 @@ function getParameterDefinitions() {
       initial: (window['g_prm_house_lugThickness']!==undefined ? g_prm_house_lugThickness : 4),
       step: 0.1,
       min: 2,
-      max: 4,
+      max: 6,
       caption: 'Lug Thickness (in mm) (Advance):'
     }
 
