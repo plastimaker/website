@@ -102,7 +102,7 @@ function main(params) {
   }
 
   function addLayerBands(body) {
-    var numOfLayerBands = params.layer_band_count; //from 0 to 6
+    var numOfLayerBands = params.house_layer_band_count; //from 0 to 6
     var layerBandThickness = 100;//params.layer_band_thickness;//percentage of house_thickness. From %1 to %100
     var layerBandHeight = params.layer_band_height;//from 1 to 5
 
@@ -291,7 +291,7 @@ function getParameterDefinitions() {
       caption: 'Window clearance on Z axis (0.0 - 0.85):'
     },
     {
-      name: 'layer_band_count',
+      name: 'house_layer_band_count',
       type: 'int',
       initial: (window['g_prm_house_layer_band_count']!==undefined ? g_prm_house_layer_band_count : 1),
       step: 1,

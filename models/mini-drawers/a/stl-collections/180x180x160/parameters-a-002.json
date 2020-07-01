@@ -17,7 +17,7 @@
         "house_window_w_prcnt": 0.85,
         "house_window_d_prcnt": 0.85,
         "house_window_h_prcnt": 0.75,
-        "house_layer_band_count": 1,
+        "house_layer_band_count": 4,
         "house_layer_band_height": 2,
         "house_top_lug": true,
         "house_right_lug": true,
