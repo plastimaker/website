@@ -213,7 +213,7 @@
           if ($('.downloadOutputFileLink').is(':visible')){
             if(_lastStatus4DownloadLinkIsHidden) {
               _lastStatus4DownloadLinkIsHidden = false;
-              $('.downloadParametersLink').click(function(){
+              $('.downloadParametersLink').off('click').click(function(){
                 var blob = new Blob([getParamsJson()], {type: "application/json;charset=utf-8"});
                 saveAs(blob, "parameters.json");
               }).show();
