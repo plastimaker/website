@@ -75,7 +75,7 @@ function main(params) {
       size: [
         params.drawer_width - params.drawer_thickness * 2,
         depth,
-        params.drawer_height - params.drawer_thickness], center: true
+        params.drawer_height], center: true
     })
       .translate([0,
         params.drawer_depth / 2 - depth / 2 - params.drawer_thickness,
